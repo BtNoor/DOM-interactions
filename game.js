@@ -19,14 +19,18 @@ function bindEventListeners (dots) {
 
 function makeGreen (evt) {
   evt.preventDefault()
-  evt.target.classList.toggle('green')
+  evt.target.classList.toggle('green');
+  evt.target.classList.remove('invisible');
+  evt.target.classList.remove('blue');
   updateCounts()
 }
 
 // CREATE FUNCTION makeBlue HERE
 
 function makeBlue (evt) {
-  evt.target.classList.toggle('blue')
+  evt.target.classList.toggle('blue');
+  evt.target.classList.remove('invisible');
+  evt.target.classList.remove('green');
   updateCounts()
 }
 
@@ -35,6 +39,8 @@ function makeBlue (evt) {
 function hide (evt) {
 
   evt.target.classList.toggle('invisible');
+  evt.target.classList.remove('blue');
+  evt.target.classList.remove('green');
   updateCounts()
 
 }
@@ -46,12 +52,12 @@ function updateCounts () {
     green: 0,
     invisible: 0
   }
+  
+  // WRITE CODE HERE TO COUNT BLUE, GREEN, AND INVISIBLE DOTS
 
   totals.blue = document.getElementsByClassName('blue').length;
   totals.green = document.getElementsByClassName('green').length;
   totals.invisible = document.getElementsByClassName('invisible').length;
-  
-  // WRITE CODE HERE TO COUNT BLUE, GREEN, AND INVISIBLE DOTS
 
   // Once you've done the counting, this function will update the display
   displayTotals(totals)
